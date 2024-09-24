@@ -184,7 +184,7 @@ function NavLink({ href, isActive, children, mobile = false }: NavLinkProps) {
       href={href}
       className={`${
         mobile ? 'block py-3 px-4 text-center text-xl' : 'inline-block'
-      } relative font-medium transition-colors hover:text-pink-300 ${
+      } relative font-medium transition-colors hover:text-pink-300 text-lg ${
         isActive ? 'text-pink-300 font-semibold' : 'text-black'
       }`}
     >
