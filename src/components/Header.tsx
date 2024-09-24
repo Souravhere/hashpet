@@ -150,11 +150,11 @@ function NavLink({ href, isActive, children, mobile = false }: NavLinkProps) {
       href={href}
       className={`${
         mobile ? 'block py-3 px-4 text-center text-xl' : 'inline-block'
-      } relative font-medium transition-colors hover:text-purple-500 ${
-        isActive ? 'text-purple-500' : 'text-gray-700'
+      } relative font-medium transition-colors hover:text-pink-300 ${
+        isActive ? 'text-pink-300 font-bold' : 'text-black'
       }`}
     >
-      {children}
+      {children},
       {isActive && (
         <motion.svg
           className="absolute -bottom-1 left-0 w-full"
