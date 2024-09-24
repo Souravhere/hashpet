@@ -49,7 +49,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="md:hidden z-50"
+          className="md:hidden z-20"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle menu"
           whileTap={{ scale: 0.95 }}
@@ -67,7 +67,7 @@ export default function Header() {
         {/* Contact Button */}
         <Link href="/contact" className="hidden md:block">
           <motion.div
-            className="bg-purple-500 text-white px-6 py-2 rounded-full hover:bg-purple-600 transition-colors"
+            className="bg-gradient-to-r from-[#A45489] to-[#7A69A2] bg-transparent text-white px-6 py-2 rounded-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -90,7 +90,7 @@ export default function Header() {
               <motion.button
                 onClick={() => setIsMenuOpen(false)}
                 whileTap={{ scale: 0.95 }}
-                className="text-gray-500 hover:text-gray-700"
+                className="text-red-500 hover:text-gray-700 hidden"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -125,7 +125,7 @@ export default function Header() {
                   open: { x: 0, opacity: 1 },
                 }}
               >
-                <Link href="/contact" className="block text-center bg-purple-500 text-white mx-4 my-2 px-6 py-3 rounded-full hover:bg-purple-600 transition-colors">
+                <Link href="/contact" className="block text-center bg-gradient-to-r from-[#A45489] to-[#7A69A2] bg-transparent text-white mx-4 my-2 px-6 py-3 rounded-full hover:bg-pink-600 transition-colors">
                   Contact
                 </Link>
               </motion.div>
