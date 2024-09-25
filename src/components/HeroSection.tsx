@@ -8,101 +8,103 @@ import Link from 'next/link'
 export default function HeroSection() {
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-white">
-      <div>
-      <motion.div 
-            className=""
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src="/cat3.png"
-              alt="Left Cat"
-              width={300}
-              height={300}
-              className="sm:w-52 w-44 rotate-[75deg] absolute sm:-left-16 -left-[50px] sm:top-[35%] top-[20%]"
-            />
-          </motion.div>
-          <motion.div 
-            className=""
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src="/cat3.png"
-              alt="Right Cat"
-              width={300}
-              height={300}
-              className="sm:w-52 w-48 rotate-[-15deg] absolute sm:-right-3 right-0 sm:-bottom-[10%] -bottom-[5%]"
-            />
-          </motion.div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div 
+          className="absolute sm:-left-16 -left-[50px] sm:top-[35%] top-[20%]"
+          initial={{ opacity: 0, x: -100, rotate: 0 }}
+          animate={{ opacity: 1, x: 0, rotate: 75 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Image
+            src="/cat3.png"
+            alt="Left Cat"
+            width={300}
+            height={300}
+            className="sm:w-52 w-44"
+          />
+        </motion.div>
+        <motion.div 
+          className="absolute sm:-right-3 right-0 sm:-bottom-[10%] -bottom-[5%]"
+          initial={{ opacity: 0, x: 100, rotate: 0 }}
+          animate={{ opacity: 1, x: 0, rotate: -15 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Image
+            src="/cat3.png"
+            alt="Right Cat"
+            width={300}
+            height={300}
+            className="sm:w-52 w-48"
+          />
+        </motion.div>
         <div className="relative w-full">
-          
-          <div className="mt-12 lg:mt-0 lg:col-span-1">
-            <div className="text-center">
-              <motion.h1 
-                className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-4xl"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+          <div className="text-center">
+            <motion.h1 
+              className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl"
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              Your <span className="text-pink-300">Hash Pet Is</span>
+            </motion.h1>
+            <motion.div
+              className="relative mt-4"
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.svg
+                className="mx-auto"
+                width="454"
+                height="12"
+                viewBox="0 0 454 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                Your <span className="text-pink-300">Hash Pet Is</span>
-              </motion.h1>
-              <motion.div
-                className="relative"
-                initial="hidden"
-                animate="visible"
-              >
-                <motion.svg
-                  className="absolute left-1/2 transform -translate-x-1/2 mt-2"
-                  width="100"
-                  height="8"
-                  viewBox="0 0 82 8"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <motion.path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M34.8263 0.766163C30.9739 1.02872 27.1668 1.35156 23.4542 1.7045C18.1986 2.20379 12.945 2.7203 7.72309 3.5381C6.07936 3.79636 4.41012 3.95991 2.77666 4.28273C1.75128 4.48502 0.391641 4.77337 0.213206 4.83362C0.119877 4.86806 0.0791612 4.91976 0.0660047 4.93697C-0.0265019 5.05749 -0.0096229 5.17366 0.0425919 5.26405C0.0635601 5.30278 0.116582 5.39751 0.263771 5.41043C10.1073 6.29279 20.1728 4.57111 30.0283 4.39033C47.1194 4.08043 64.7285 5.31143 81.684 7.99726C81.832 8.01878 81.9759 7.91115 81.9965 7.75189C82.0211 7.59694 81.9142 7.44629 81.7662 7.42477C64.782 4.73464 47.1441 3.49932 30.0201 3.81353C20.8352 3.98139 11.469 5.4922 2.27137 4.9757C2.48269 4.93265 2.68992 4.8896 2.87905 4.85086C4.50593 4.52804 6.16817 4.3688 7.80533 4.11055C13.0161 3.29275 18.259 2.77624 23.5076 2.28125C30.0201 1.66145 36.8162 1.12772 43.6658 0.878077C46.1162 0.916815 48.5584 0.955569 51.0006 1.00292C56.2837 1.10622 61.5916 1.40751 66.8624 1.81211C68.4494 1.93693 70.0364 2.06605 71.6234 2.17796C72.1496 2.2167 73.5064 2.32859 73.6955 2.31998C73.9299 2.31137 73.9751 2.10479 73.9792 2.07035C73.9915 1.99288 73.9833 1.88526 73.8682 1.79488C73.8559 1.78196 73.7819 1.73889 73.6174 1.71307C64.0337 0.189377 53.8004 -0.0645317 43.6741 0.301327C32.9926 0.142071 22.2701 0.0731716 11.6158 0C11.4632 0 11.3387 0.129145 11.3374 0.288401C11.3366 0.447657 11.4595 0.576807 11.6121 0.581111C19.3267 0.632762 27.0804 0.684383 34.8263 0.766163Z" fill="#FFA5CB"
-                    variants={{
-                      hidden: { pathLength: 0, opacity: 0 },
-                      visible: { 
-                        pathLength: 1, 
-                        opacity: 1,
-                        transition: { 
-                          pathLength: { type: "spring", duration: 1.5, bounce: 0 },
-                          opacity: { duration: 0.01 }
-                        }
+                <motion.path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M192.819 1.14924C171.49 1.54308 150.411 2.02734 129.856 2.55676C100.758 3.30569 71.6711 4.08046 42.7596 5.30716C33.6589 5.69454 24.417 5.93986 15.3732 6.42409C9.6961 6.72753 2.16836 7.16005 1.18043 7.25044C0.663711 7.30209 0.438283 7.37964 0.365441 7.40546C-0.14673 7.58624 -0.053278 7.76049 0.235814 7.89607C0.351906 7.95418 0.645468 8.09627 1.46039 8.11564C55.9599 9.43919 111.689 6.85666 166.254 6.5855C260.881 6.12064 358.375 7.96715 452.25 11.9959C453.07 12.0282 453.867 11.8667 453.98 11.6278C454.117 11.3954 453.525 11.1694 452.706 11.1372C358.671 7.10195 261.017 5.24898 166.209 5.72029C115.356 5.97209 63.4991 8.2383 12.5756 7.46355C13.7457 7.39898 14.893 7.33439 15.9401 7.27629C24.9475 6.79206 34.1506 6.5532 43.2149 6.16582C72.0649 4.93912 101.092 4.16436 130.152 3.42188C166.209 2.49217 203.836 1.69158 241.76 1.31711C255.326 1.37522 268.848 1.43335 282.369 1.50437C311.62 1.65933 341.007 2.11127 370.189 2.71816C378.976 2.9054 387.762 3.09907 396.549 3.26694C399.463 3.32504 406.975 3.49288 408.022 3.47997C409.319 3.46705 409.569 3.15718 409.592 3.10553C409.661 2.98932 409.615 2.8279 408.978 2.69231C408.909 2.67295 408.5 2.60834 407.589 2.5696C354.528 0.284066 297.871 -0.0967975 241.805 0.45199C182.666 0.213106 123.3 0.109757 64.3118 0C63.4673 0 62.7775 0.193718 62.7707 0.432602C62.7661 0.671486 63.4467 0.86521 64.2912 0.871666C107.004 0.949142 149.933 1.02657 192.819 1.14924Z"
+                  fill="#FFA5CB"
+                  variants={{
+                    hidden: { pathLength: 0, opacity: 0 },
+                    visible: { 
+                      pathLength: 1, 
+                      opacity: 1,
+                      transition: { 
+                        pathLength: { type: "spring", duration: 2, bounce: 0 },
+                        opacity: { duration: 0.01 }
                       }
-                    }}
-                  />
-                </motion.svg>
-              </motion.div>
-              <motion.p 
-                className="mt-8 max-w-md mx-auto text-base sm:px-0 px-4 text-gray-500 sm:text-lg md:mt-10 md:text-xl"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                    }
+                  }}
+                />
+              </motion.svg>
+            </motion.div>
+            <motion.p 
+              className="mt-8 max-w-md mx-auto text-base sm:px-0 px-4 text-gray-500 sm:text-lg md:mt-10 md:text-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              Next-generation digital WEB3.0 platform beyond providing simple existing services.
+            </motion.p>
+            <motion.div 
+              className="mt-10 sm:flex sm:justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Next-generation digital WEB3.0 platform beyond providing simple existing services.
-              </motion.p>
-              <div className="mt-10 sm:flex sm:justify-center">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <Link href='/contact' 
+                className=" sm:w-full w-fit inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#A45489] to-[#7A69A2] md:py-4 md:text-lg md:px-10"
                 >
-                  <Link href='/contact' 
-                  className="w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#A45489] to-[#7A69A2] md:py-4 md:text-lg md:px-10"
-                  >
-                  Get Started
-                  </Link>
-                </motion.div>
-              </div>
-            </div>
+                Get Started
+                </Link>
+              </motion.div>
+            </motion.div>
           </div>
-          
         </div>
       </div>
     </div>
