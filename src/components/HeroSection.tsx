@@ -94,7 +94,7 @@ export default function HeroSection() {
                 >
                   <a
                     href="#"
-                    className="w-full hidden items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 md:py-4 md:text-lg md:px-10"
+                    className="w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#A45489] to-[#7A69A2] md:py-4 md:text-lg md:px-10"
                   >
                     Get Started
                   </a>
