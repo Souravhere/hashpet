@@ -7,7 +7,7 @@ import Image from 'next/image';
 const features = [
   {
     title: "Customized Service",
-    description: "Customized services are provided to manage your pet's health, nutrition, and exercise. Customized services are provided personalized to the characteristics of your pet.",
+    description: "Customized services are provided to manage your pet's health, nutrition, and exercise. ",
     icon: "/gear-icon.svg",
   },
   {
@@ -81,7 +81,7 @@ export default function HashpetComponent() {
         {features.map((feature, index) => (
           <motion.div
             key={feature.title}
-            className="bg-pink-300 p-6 rounded-lg shadow-md"
+            className="bg-white p-6 border border-[#EA79AB] rounded-lg shadow-md hover:bg-pink-200 duration-500 ease-in-out"
             initial={{ opacity: 0, y: 50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -91,10 +91,10 @@ export default function HashpetComponent() {
               alt={feature.title}
               width={50}
               height={50}
-              className="mb-4"
+              className="mb-4 bg-pink-300 p-2 rounded-full"
             />
             <h2 className="text-xl font-semibold mb-2">{feature.title}</h2>
-            <p className="text-gray-800">{feature.description}</p>
+            <p className="text-gray-800 text-sm">{feature.description}</p>
           </motion.div>
         ))}
       </div>
