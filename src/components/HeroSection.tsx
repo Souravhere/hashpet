@@ -6,11 +6,10 @@ import { motion } from 'framer-motion'
 
 export default function HeroSection() {
   return (
-    <div className="relative  h-screen sm:flex hidden items-center justify-center overflow-hidden bg-white py-16 sm:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative lg:grid lg:grid-cols-3 lg:gap-8">
-          <motion.div 
-            className="lg:col-span-1"
+    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-white">
+      <div>
+      <motion.div 
+            className=""
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
@@ -20,9 +19,25 @@ export default function HeroSection() {
               alt="Left Cat"
               width={300}
               height={300}
-              className="sm:w-52 rotate-[75deg] absolute -left-16 top-[40%]"
+              className="sm:w-52 w-48 rotate-[75deg] absolute sm:-left-16 -left-[50px] sm:top-[40%] top-[20%]"
             />
           </motion.div>
+          <motion.div 
+            className=""
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <Image
+              src="/cat3.png"
+              alt="Right Cat"
+              width={300}
+              height={300}
+              className="sm:w-52 w-64 rotate-[-15deg] absolute -right-3 sm:-bottom-[10%] -bottom-[5%]"
+            />
+          </motion.div>
+        <div className="relative w-full bg-white">
+          
           <div className="mt-12 lg:mt-0 lg:col-span-1">
             <div className="text-center">
               <motion.h1 
@@ -87,20 +102,7 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          <motion.div 
-            className="mt-12 lg:mt-0 lg:col-span-1"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <Image
-              src="/cat3.png"
-              alt="Right Cat"
-              width={300}
-              height={300}
-              className="sm:w-52 rotate-[-15deg] absolute -right-3 top-[115%]"
-            />
-          </motion.div>
+          
         </div>
       </div>
     </div>
