@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useRef, useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const features = [
@@ -11,13 +11,13 @@ const features = [
     icon: "/gear-icon.svg",
   },
   {
-    title: "Integrated solution",
-    description: "Comprehensive solution that helps you easily manage all aspects of pet care to one platform.",
+    title: "Integrated Solution",
+    description: "Comprehensive solution that helps you easily manage all aspects of pet care on one platform.",
     icon: "/integration-icon.svg",
   },
   {
     title: "User Experience",
-    description: "It is intuitive, convenient, and easy for anyone to use. Reduces the complexity of pet care and increases the enjoyment.",
+    description: "It is intuitive, convenient, and easy for anyone to use. Reduces the complexity of pet care and increases enjoyment.",
     icon: "/clock-icon.svg",
   },
   {
@@ -28,8 +28,27 @@ const features = [
 ];
 
 export default function HashpetComponent() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.5 });
+  const ref = useRef<HTMLDivElement>(null); // Specify the type as HTMLDivElement
+  const [isInView, setIsInView] = useState(false);
+
+  const handleScroll = () => {
+    if (ref.current) {  // Check if ref.current is not null
+      const rect = ref.current.getBoundingClientRect(); // Now TypeScript knows this is a valid call
+      // Adjust the trigger point to make it more responsive
+      if (rect.top < window.innerHeight * 0.85) {
+        setIsInView(true);
+      } else {
+        setIsInView(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <div className="max-w-7xl relative mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -93,19 +112,23 @@ export default function HashpetComponent() {
           <motion.div
             key={feature.title}
             className="bg-white p-6 border border-[#EA79AB] rounded-lg shadow-md hover:bg-pink-200 duration-500 ease-in-out"
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            initial={{ opacity: 0, y: 50, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{
+              duration: 0.5,
+              delay: index * 0.1,
+              ease: [0.65, 0, 0.35, 1] // Cubic Bezier for smoother animation
+            }}
           >
             <Image
               src={feature.icon}
               alt={feature.title}
               width={50}
               height={50}
-              className="mb-4 bg-pink-200 p-2 rounded-full border border-[#EA79AB]"
+              className="mb-4 bg-pink-200"
             />
-            <h2 className="text-xl font-semibold mb-2">{feature.title}</h2>
-            <p className="text-gray-800 text-sm">{feature.description}</p>
+            <h3 className="text-lg font-semibold">{feature.title}</h3>
+            <p className="text-gray-600">{feature.description}</p>
           </motion.div>
         ))}
       </div>
