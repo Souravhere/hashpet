@@ -49,13 +49,13 @@ export default function HeroSection() {
             
             {/* SVG positioned directly under the "Hash Pet Is" text */}
             <motion.div
-              className="relative mt-4"
+              className="relative sm:ml-36 mt-4"
               initial="hidden"
               animate="visible"
             >
               <motion.svg
                 className="mx-auto"
-                width="3few54"
+                width="354"
                 height="12"
                 viewBox="0 0 454 12"
                 fill="none"
