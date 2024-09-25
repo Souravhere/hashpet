@@ -73,7 +73,7 @@ export default function HashpetComponent() {
       
       {/* SVG line with drawing effect */}
       <motion.div
-        className="relative sm:ml-36 mt-4"
+        className="relative mt-2"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
       >
@@ -125,7 +125,7 @@ export default function HashpetComponent() {
               alt={feature.title}
               width={50}
               height={50}
-              className="mb-4 bg-pink-200"
+              className="mb-4 bg-pink-200 rounded-full border border-pink-300 p-2"
             />
             <h3 className="text-lg font-semibold">{feature.title}</h3>
             <p className="text-gray-600">{feature.description}</p>
