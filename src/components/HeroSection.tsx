@@ -3,6 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function HeroSection() {
   return (
@@ -92,12 +93,11 @@ export default function HeroSection() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a
-                    href="#"
-                    className="w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#A45489] to-[#7A69A2] md:py-4 md:text-lg md:px-10"
+                  <Link href='/contact' 
+                  className="w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#A45489] to-[#7A69A2] md:py-4 md:text-lg md:px-10"
                   >
-                    Get Started
-                  </a>
+                  Get Started
+                  </Link>
                 </motion.div>
               </div>
             </div>
