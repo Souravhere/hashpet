@@ -55,7 +55,7 @@ export default function HeroSection() {
             >
               <motion.svg
                 className="mx-auto"
-                width="354"
+                width="3few54"
                 height="12"
                 viewBox="0 0 454 12"
                 fill="none"
