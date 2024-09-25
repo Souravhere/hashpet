@@ -19,7 +19,7 @@ export default function HeroSection() {
               alt="Left Cat"
               width={300}
               height={300}
-              className="sm:w-52 w-48 rotate-[75deg] absolute sm:-left-16 -left-[50px] sm:top-[40%] top-[20%]"
+              className="sm:w-52 w-44 rotate-[75deg] absolute sm:-left-16 -left-[50px] sm:top-[35%] top-[20%]"
             />
           </motion.div>
           <motion.div 
@@ -33,10 +33,10 @@ export default function HeroSection() {
               alt="Right Cat"
               width={300}
               height={300}
-              className="sm:w-52 w-64 rotate-[-15deg] absolute -right-3 sm:-bottom-[10%] -bottom-[5%]"
+              className="sm:w-52 w-48 rotate-[-15deg] absolute sm:-right-3 right-0 sm:-bottom-[10%] -bottom-[5%]"
             />
           </motion.div>
-        <div className="relative w-full bg-white">
+        <div className="relative w-full">
           
           <div className="mt-12 lg:mt-0 lg:col-span-1">
             <div className="text-center">
@@ -80,7 +80,7 @@ export default function HeroSection() {
                 </motion.svg>
               </motion.div>
               <motion.p 
-                className="mt-8 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-10 md:text-xl"
+                className="mt-8 max-w-md mx-auto text-base sm:px-0 px-4 text-gray-500 sm:text-lg md:mt-10 md:text-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
