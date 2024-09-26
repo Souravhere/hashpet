@@ -4,7 +4,9 @@ import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import Link from "next/link"
 import Image from "next/image"
-import { FaTelegramPlane, FaTwitter } from "react-icons/fa"
+import { FaTelegramPlane } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6";
+import { RiMediumFill } from "react-icons/ri";
 
 export default function Footer() {
   const [ref, inView] = useInView({
@@ -49,11 +51,14 @@ export default function Footer() {
           <h2 className="text-2xl font-bold">Hash Pet</h2>
           <p className="text-sm">Touched With Hash Pet Community</p>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-pink-300 transition-colors duration-500">
+            <Link href="https://t.me/hashpetofficial" target="blank" className="hover:text-pink-300 transition-colors duration-500">
               <FaTelegramPlane size={24} />
             </Link>
-            <Link href="#" className="hover:text-pink-300 transition-colors duration-500">
-              <FaTwitter size={24} />
+            <Link href="https://medium.com/@hashpet" target="blank" className="hover:text-pink-300 transition-colors duration-500">
+            <RiMediumFill size={24}/>
+            </Link>
+            <Link href="https://x.com/Hash_Pet" target="blank" className="hover:text-pink-300 transition-colors duration-500">
+            <FaXTwitter size={24}/>
             </Link>
           </div>
         </motion.div>
