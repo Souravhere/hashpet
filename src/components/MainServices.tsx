@@ -65,6 +65,16 @@ function MainServices() {
         {/* card - 2 this is the card from left img and right text*/}
       <div>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
+          {/* this is the text section for mobile */}
+          <div className='sm:w-1/2 sm:hidden block w-full bg-white items-center mt-20 justify-between sm:h-full h-fit px-3'>
+            <div>
+              <h1 className='text-4xl text-center font-bold my-3'>PetPle</h1>
+              {/* here is svg */}
+              <p className='text-base text-center sm:w-[70%] mx-auto'>
+              This service provides walking and care services for pets.Petple promotes the health and happiness of pets through a variety of care options for pets. We promote convenience in the lives of pet owners.
+              </p>
+            </div>
+          </div>
           {/* this is img section */}
           <div className='sm:w-1/2 w-full relative flex items-center justify-center sm:p-3 p-5 sm:mt-0 mt-20'>
             
@@ -97,8 +107,8 @@ function MainServices() {
               </ul>
             </div>
           </div>
-          {/* this is the card left section */}
-          <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
+          {/* this is the text section for the desktop */}
+          <div className='sm:w-1/2 hidden w-full bg-white sm:flex items-center justify-between sm:h-full h-fit px-3'>
             <div>
               <h1 className='text-4xl text-center font-bold my-3'>PetPle</h1>
               {/* here is svg */}
@@ -168,6 +178,16 @@ function MainServices() {
       {/* card - 4 this is the card from left img and right text*/}
       <div>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
+          {/* this is text section for the mobile */}
+          <div className='sm:w-1/2 w-full sm:hidden bg-white flex mt-20 items-center justify-between sm:h-full h-fit px-3'>
+            <div>
+              <h1 className='text-4xl text-center font-bold my-3'>Pet Parazzi</h1>
+              {/* here is svg */}
+              <p className='text-base text-center sm:w-[70%] mx-auto'>
+              Enjoy recording moments with your pets and sharing them with other users. At the same time, you can receive various rewards and reminisce about happy memories with your pet.
+              </p>
+            </div>
+          </div>
           {/* this is img section */}
           <div className='sm:w-1/2 w-full relative flex items-center justify-center sm:p-3 p-5 sm:mt-0 mt-20'>
             
@@ -201,7 +221,7 @@ function MainServices() {
             </div>
           </div>
           {/* this is the card left section */}
-          <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
+          <div className='sm:w-1/2 w-full bg-white sm:flex hidden items-center justify-between sm:h-full h-fit px-3'>
             <div>
               <h1 className='text-4xl text-center font-bold my-3'>Pet Parazzi</h1>
               {/* here is svg */}
@@ -212,8 +232,8 @@ function MainServices() {
           </div>
         </div>
       </div>
-              {/* card - 3 this is the card from left text and right img*/}
-              <div>
+      {/* card - 5 this is the card from left text and right img*/}
+      <div>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
