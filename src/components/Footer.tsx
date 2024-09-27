@@ -46,7 +46,7 @@ export default function Footer() {
       variants={containerVariants}
     >
       <div className="max-w-7xl mx-auto sm:flex justify-between block">
-        <motion.div variants={itemVariants} className="space-y-4 sm:inline block sm:w-auto w-full sm:mx-0">
+        <motion.div variants={itemVariants} className="space-y-4 sm:inline block sm:min-w-32 w-full sm:mx-0">
           <Image src="/logo.png" alt="Hash Pet Logo" width={80} height={80} className="rounded-lg sm:mx-0 mx-auto" />
           <h2 className="text-2xl font-bold sm:text-left text-center">Hash Pet</h2>
           <p className="text-sm sm:text-left text-center">Touched With Hash Pet Community</p>
