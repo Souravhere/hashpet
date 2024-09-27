@@ -32,7 +32,7 @@ const services = [
 
 export default function Services() {
   return (
-    <div className="bg-gradient-to-b from-pink-100 to-purple-100 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.h2 
           className="text-4xl font-bold text-center mb-2"
@@ -67,11 +67,13 @@ export default function Services() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
               <div className="bg-white sm:flex relative rounded-lg shadow-lg p-6 z-10">
-                <div>
-                <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
+                <div className="sm:w-1/2 w-full sm:flex items-center justify-center block">
+                    <div>
+                        <h3 className="text-2xl font-semibold mb-4 text-center">{service.title}</h3>
+                        <p className="text-gray-600 mb-6 text-center sm:w-[70%] mx-auto">{service.description}</p>
+                    </div>
                 </div>
-                <div className="relative h-[500px] w-full mb-6">
+                <div className="relative h-[500px] sm:w-1/2 w-full mb-6">
                   <Image
                     src={service.image}
                     alt={service.title}
@@ -80,7 +82,7 @@ export default function Services() {
                     className="rounded-lg"
                   />
                 </div>
-                <ul className="space-y-2 absolute top-1 right-2 backdrop-blur-sm p-3 rounded-xl border border-pink-300">
+                <ul className="space-y-2 absolute top-3 right-4 backdrop-blur-sm p-3 rounded-xl border border-pink-300">
                   {service.features.map((feature, featureIndex) => (
                     <motion.li 
                       key={featureIndex}
