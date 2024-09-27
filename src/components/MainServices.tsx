@@ -128,7 +128,7 @@ function MainServices() {
               <h1 className='text-4xl text-center font-bold my-3'>Pet Doc</h1>
               {/* here is svg */}
               <p className='text-base text-center sm:w-[70%] mx-auto'>
-              This service is for your pet&apos;fews health and medical management.PetDoc prioritizes the health of pets by providing a variety of medical-related services. We help pet owners manage their pets' health more easily
+              This service is for your pet&apos;s fews health and medical management. PetDoc prioritizes the health of pets by providing a variety of medical-related services. We help pet owners manage their pet&apos;s health more easily
               </p>
             </div>
           </div>
