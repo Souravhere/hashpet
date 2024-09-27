@@ -47,16 +47,16 @@ function MainServices() {
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-14  right-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
                 <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <li>- Profiles and feeds</li>
+                <li>- Situation update</li>
               </ul>
             </div>
             {/* card left */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-14  left-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Information Sharing</p>
+                <li>- Pet column</li>
+                <li>- Information Sharing</li>
               </ul>
             </div>
           </div>
@@ -93,17 +93,17 @@ function MainServices() {
             {/* card right */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-14  right-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Events and Gatherings</p>
+                <li>- Online event</li>
+                <li>- Offline meeting</li>
               </ul>
             </div>
             {/* card left */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-14  left-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Location Services</p>
+                <li>- Walking path</li>
+                <li>- Reviews ard ratings</li>
               </ul>
             </div>
           </div>
@@ -157,19 +157,19 @@ function MainServices() {
               className="rounded-lg h-[500px]"
             />
             {/* card right */}
-            <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-14  right-3 p-2'>
+            <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-20  right-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Activity tracking</p>
+                <li>- Exercise tracking</li>
+                <li>- Activity log</li>
               </ul>
             </div>
             {/* card left */}
-            <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-14  left-3 p-2'>
+            <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-20  left-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Reward System</p>
+                <li>- Reward Exchange</li>
+                <li>- Point Accumulation</li>
               </ul>
             </div>
           </div>
@@ -204,17 +204,17 @@ function MainServices() {
             {/* card right */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-14  right-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>GPS & Iocation Tacking</p>
+                <li>- Safety management</li>
+                <li>- Record your walking route</li>
               </ul>
             </div>
             {/* card left */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-14  left-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Information sharing</p>
+                <li>- Health Contents</li>
+                <li>- Exercise Tips</li>
               </ul>
             </div>
           </div>
@@ -270,17 +270,17 @@ function MainServices() {
             {/* card right */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-top-6 -top-9 sm:right-14  right-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Events & Promotions</p>
+                <li>- Promotion</li>
+                <li>- Exercise challenge</li>
               </ul>
             </div>
             {/* card left */}
             <div className='backdrop-blur-sm rounded-lg border bg-white/75 border-pink-300 absolute sm:-bottom-6 -bottom-9 sm:left-14  left-3 p-2'>
               <ul className='text-[#EE3399] font-semibold text-sm'>
-                <p className='text-lg font-semibold'>Social Community</p>
-                <li>Information Sharing</li>
-                <li>Events and Gatherings</li>
+                <p className='text-lg font-semibold'>Group Activity</p>
+                <li>- Add and follow Friends</li>
+                <li>- Competition and Challenge</li>
               </ul>
             </div>
           </div>
