@@ -5,7 +5,7 @@ function MainServices() {
   return (
     <div className='w-full h-fit'>
       <h1 className='text-4xl font-bold text-center mb-2'> Services</h1>
-      <p className='text-base text-center'>Join your Pet Life with <span className="text-pink-500">#Pet</span></p>
+      <p className='text-base text-center'>Join your Pet Life with <span className="text-pink-500">Pet</span></p>
         {/* card - 1 this is the card from left text and right img*/}
       <div>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
