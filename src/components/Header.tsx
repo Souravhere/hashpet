@@ -59,7 +59,7 @@ export default function Header() {
     <AnimatePresence>
       {showHeader && (
         <motion.header
-          className=" sm:backdrop-blur-xl bg-white shadow-md fixed top-0 left-0 w-full z-50"
+          className=" sm:backdrop-blur-xl sm:bg-transparent bg-white shadow-md fixed top-0 left-0 w-full z-50"
           initial={{ y: -100 }}
           animate={{ y: 0 }}
           exit={{ y: -100 }}
