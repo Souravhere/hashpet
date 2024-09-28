@@ -95,7 +95,7 @@ export default function Roadmap() {
               items={["Hashpet project Reveal"]}
               color="pink"
               isLeft={true}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-pink.png"
             />
             <QuarterBox
               year="2024"
@@ -108,7 +108,7 @@ export default function Roadmap() {
               ]}
               color="pink"
               isLeft={true}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-pink.png"
             />
             <QuarterBox
               year="2024"
@@ -121,7 +121,7 @@ export default function Roadmap() {
               ]}
               color="pink"
               isLeft={true}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-pink.png"
             />
           </div>
           <div className="space-y-16 mt-16 md:mt-32">
@@ -137,7 +137,7 @@ export default function Roadmap() {
               ]}
               color="purple"
               isLeft={false}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-purple.png"
             />
             <QuarterBox
               year="2025"
@@ -150,7 +150,7 @@ export default function Roadmap() {
               ]}
               color="purple"
               isLeft={false}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-purple.png"
             />
             <QuarterBox
               year="2025"
@@ -164,7 +164,7 @@ export default function Roadmap() {
               ]}
               color="purple"
               isLeft={false}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-purple.png"
             />
             <QuarterBox
               year="2025"
@@ -176,7 +176,7 @@ export default function Roadmap() {
               ]}
               color="purple"
               isLeft={false}
-              imageSrc="/placeholder.svg?height=100&width=100"
+              imageSrc="/cat-footprint-purple.png"
             />
           </div>
         </div>
