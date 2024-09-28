@@ -79,7 +79,7 @@ export default function Roadmap() {
       <BlackMainLine />
       <div className="container mx-auto px-4">
         <h1 className="text-4xl font-bold text-center mb-12">Road Map</h1>
-        <Image src="/placeholder.svg?height=100&width=100" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8" />
+        <Image src="/cat-footprint-pink.png" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="space-y-16">
             <QuarterBox
