@@ -115,7 +115,7 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/faq"
+                href="https://bscscan.com/token/0x8e3ec4184c8df07418d8adffaa7adfc5dedb521c" target="blank"
                 className="hover:text-pink-300 transition-colors duration-300 hover:underline"
               >
                 Explorer
