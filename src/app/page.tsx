@@ -4,6 +4,7 @@ import MainServices from "@/components/MainServices";
 // import ServiceMain from "@/components/ServiceMain";
 // import Services from "@/components/Services";
 import Ctasection from "@/components/Ctasection"
+import Roadmap from "@/components/Roadmap";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       {/* <Services /> */}
       <MainServices/>
       {/* <ServiceMain/> */}
+      <Roadmap/>
       <Ctasection/>
     </div>
   );
