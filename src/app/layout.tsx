@@ -57,12 +57,11 @@ const jsonLd = {
   "@type": "Organization",
   "name": "Hash Pet",
   "url": "https://www.hashpet.io",
-  "logo": "https://www.hashpet.io/images/logo.png", // Replace with your logo URL
+  "logo": "https://www.hashpet.io/logo.png",
   "sameAs": [
     "https://www.facebook.com/hashpet",
     "https://twitter.com/hashpet",
     "https://www.instagram.com/hashpet",
-    // Add more social links here
   ],
   "description": "Hash Pet is a Web3 platform revolutionizing the pet care industry with personalized, data-driven services for pet owners worldwide.",
   "contactPoint": {
