@@ -1,164 +1,122 @@
 "use client";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FaDownload } from 'react-icons/fa'; // Icon for download button
+import Image from 'next/image'; // Import Image component
 
-import React from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { FaCoins, FaPercentage, FaHandsHelping, FaChartPie, FaGlobe, FaHeart } from "react-icons/fa";
-
-// Define interfaces for types
-interface TokenInfo {
-  label: string;
-  value: string;
+// Define a TypeScript interface for the resource data
+interface Resource {
+  title: string;
+  description: string;
+  link: string;
+  image: string;
+  icon: React.ReactNode; // ReactNode for the icon
 }
 
-interface TokenAllocation {
-  label: string;
-  value: string;
-  icon: React.ReactNode;
-}
-
-const tokenInfo: TokenInfo[] = [
-  { label: "Network", value: "BSC (Binance Smart Chain)" },
-  { label: "Token Name", value: "Hash Pet Token" },
-  { label: "Ticker", value: "Hash Pet" },
-  { label: "Decimal", value: "18" },
-  { label: "Total Issuance", value: "10,000,000,000 Hash Pet" },
-  { label: "Contract Address", value: "0x8e3Ec4184C8dF07418D8aDFfa a7ADfc5DEdb521C" },
-];
-
-const tokenAllocation: TokenAllocation[] = [
-  { label: "Sale", value: "25%", icon: <FaCoins className="text-pink-500" /> },
-  { label: "Team & Advisor", value: "20%", icon: <FaHandsHelping className="text-purple-500" /> },
-  { label: "Marketing & Operation", value: "20%", icon: <FaGlobe className="text-pink-500" /> },
-  { label: "Bounty", value: "5%", icon: <FaPercentage className="text-purple-500" /> },
-  { label: "Ecosystem", value: "20%", icon: <FaChartPie className="text-pink-500" /> },
-  { label: "Reserve", value: "10%", icon: <FaHeart className="text-purple-500" /> },
-];
-
-const howToUseToken = [
-  "Service use and payment",
-  "Marketplace",
-  "Platform transaction fees",
-  "Donations and Social Contribution",
+// Define the resources data array with proper types
+const resourcesData: Resource[] = [
+  {
+    title: "Get the Logo",
+    description: "Download the logo and brush up on usage guidelines.",
+    link: "/logo.png", // Change this to the actual path of your logo
+    image: "/logo.png", // Add the path to your logo preview
+    icon: <FaDownload className="text-blue-500" />,
+  },
+  {
+    title: "Characters",
+    description: "Explore our characters and their usage in your content.",
+    link: "/cat3.png", // Change this to the actual path of your character resource
+    image: "/cat3.png", // Add the path to your character preview
+    icon: <FaDownload className="text-blue-500" />,
+  },
 ];
 
 const HeroSection = () => {
   return (
-    <div className="relative w-full h-52 flex items-center justify-center bg-gradient-to-r from-pink-300 to-purple-300 rounded-xl p-5">
-      <motion.div
-        className="relative w-auto flex items-center justify-end h-full"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
-        <Image
-          src="/logo.png"
-          alt="Welcome to Hash Pet"
-          width={100}
-          height={100}
-        />
-      </motion.div>
-      <div className="w-1/2 h-full flex items-center justify-center text-white">
+    <div className="relative w-full h-fit flex items-center justify-center bg-gradient-to-r from-pink-300 to-purple-300 rounded-xl p-5">
+      <div className="h-full text-white text-center">
         <motion.h1
-          className="sm:text-5xl text-3xl font-bold text-center"
-          initial={{ opacity: 0, x: 20 }}
+          className="sm:text-5xl text-4xl font-bold mb-2"
+          initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Welcome to Hash Pet
+          Brand & Press
         </motion.h1>
+        <motion.p
+          className="sm:text-xl text-lg mt-2"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Our Brand
+        </motion.p>
       </div>
     </div>
   );
 };
 
-const TokenCard = ({ info }: { info: TokenInfo }) => {
+const ResourceCard: React.FC<{ resource: Resource }> = ({ resource }) => {
   return (
     <motion.div
-      className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
+      className="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-between hover:shadow-xl transition-shadow duration-300"
+      whileHover={{ scale: 1.05 }}
     >
-      <h3 className="text-lg font-semibold text-gray-800">{info.label}</h3>
-      <p className="text-gray-600">{info.value}</p>
+      <Image
+        src={resource.image}
+        alt={resource.title}
+        width={500} // Specify the width
+        height={300} // Specify the height
+      />
+      <div className="flex items-center mb-4">
+        {resource.icon}
+        <h2 className="text-lg font-semibold ml-2">{resource.title}</h2>
+      </div>
+      <p className="text-gray-600 mb-4">{resource.description}</p>
+      <a
+        href={resource.link}
+        download
+        className="text-white bg-blue-500 hover:bg-blue-600 py-2 px-4 rounded text-center flex items-center justify-center"
+      >
+        <FaDownload className="mr-2" />
+        Download
+      </a>
     </motion.div>
   );
 };
 
-const TokenAllocationCard = ({ alloc }: { alloc: TokenAllocation }) => {
+const ResourcesSection = () => {
   return (
-    <motion.div
-      className="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 hover:bg-purple-50 transition-colors duration-300"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.7 }}
-    >
-      {alloc.icon}
-      <div>
-        <h3 className="text-lg font-semibold text-gray-800">{alloc.label}</h3>
-        <p className="text-gray-600">{alloc.value}</p>
-      </div>
-    </motion.div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+      {resourcesData.map((resource, index) => (
+        <ResourceCard key={index} resource={resource} />
+      ))}
+    </div>
   );
 };
 
 const Page = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-start bg-gray-100 p-6 py-24">
+    <div className="min-h-screen bg-gray-100 py-24 px-4">
       <HeroSection />
-
-      {/* Token Info Section */}
-      <h2 className="text-3xl font-bold text-center text-pink-500 mb-8 mt-3">Hash Pet Token Details</h2>
-      <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+      <motion.h1
+        className="text-4xl font-bold text-center mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {tokenInfo.map((info, index) => (
-          <TokenCard key={index} info={info} />
-        ))}
-      </motion.div>
-
-      {/* Token Allocation Section */}
-      <h2 className="text-3xl font-bold text-center text-purple-500 mb-8">Token Allocation</h2>
-      <motion.div
-        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+        HashPet’s brand represents a new popularization of the pet market.
+      </motion.h1>
+      <motion.p
+        className="text-center text-gray-600 mt-4 max-w-3xl mx-auto"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Token Allocation Image */}
-        <Image
-          src="/chart.png" // Replace with the correct path of your image
-          alt="Token Allocation"
-          width={800}
-          height={600}
-          className="col-span-1 sm:col-span-2 lg:col-span-3 rounded-lg shadow-md mb-8"
-        />
-        {tokenAllocation.map((alloc, index) => (
-          <TokenAllocationCard key={index} alloc={alloc} />
-        ))}
-      </motion.div>
-
-      {/* How to Use Section */}
-      <h2 className="text-3xl font-bold text-center text-pink-500 mb-8">How to Use Hash Pet Token</h2>
-      <motion.div
-        className="bg-white p-6 rounded-lg shadow-lg text-gray-700 w-full sm:w-2/3 lg:w-1/2 mx-auto"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        <ul className="list-disc list-inside space-y-2">
-          {howToUseToken.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </motion.div>
+        We created these resources to empower you to utilize the Hash Pet brand while maintaining our brand integrity. 
+        Below you will find the logo and character resources that you can easily download.
+      </motion.p>
+      <ResourcesSection />
     </div>
   );
 };
