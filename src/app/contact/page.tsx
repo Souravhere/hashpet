@@ -31,7 +31,7 @@ const Page = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 p-8 py-28"
+      className="min-h-screen bg-gradient-to-br from-pink-100 to-purple-100 sm:px-8 px-3 py-24"
     >
       <div className="max-w-6xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:flex">
         <motion.div
