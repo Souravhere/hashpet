@@ -1,45 +1,53 @@
 "use client"
 
 import React, { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Image from 'next/image'
 
-const RoadmapSVG = () => {
+const CustomTimelineSVG = () => {
   const ref = useRef<HTMLDivElement>(null)
-  const [isClient, setIsClient] = useState(false)
-
-  useEffect(() => {
-    setIsClient(true)
-  }, [])
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
   })
 
-  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1])
-
-  if (!isClient) return null
+  const pathLength = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
   return (
     <div ref={ref} className="absolute left-1/2 transform -translate-x-1/2 h-full w-full z-0 hidden md:block">
       <svg
         width="100%"
         height="100%"
-        viewBox="0 0 390 1141"
+        viewBox="0 0 100 1000"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMax meet"
         className="absolute top-0 left-1/2 transform -translate-x-1/2"
       >
         <motion.path
-          d="M133.5 3H198M262.5 3H198M198 3V82M198 82H15M198 82H364.5M198 82V388M198 388H0M198 388V423.5M198 423.5H364.5M198 423.5V752.5M198 752.5H15M198 752.5V782M198 782H364.5M198 782V1100C198 1120.99 215.013 1138 236 1138H389.5"
+          d="M50 0 V1000"
           stroke="#EA79AB"
-          strokeWidth="5"
+          strokeWidth="4"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           style={{ pathLength }}
         />
+        {[100, 300, 500, 700, 900].map((y, index) => (
+          <motion.circle
+            key={index}
+            cx="50"
+            cy={y}
+            r="10"
+            fill="#EA79AB"
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: index * 0.2, duration: 0.5, type: "spring" }}
+          />
+        ))}
       </svg>
     </div>
   )
@@ -58,23 +66,44 @@ const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, is
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "center center"]
   })
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8])
-  const x = useTransform(scrollYProgress, [0, 0.5, 1], [isLeft ? -50 : 50, 0, isLeft ? -50 : 50])
+  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+  const scale = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
+  const x = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [isLeft ? -50 : 50, 0, 0]), {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  })
 
   return (
     <motion.div
       ref={ref}
       style={{ opacity, scale, x }}
-      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white' : 'bg-purple-500'} text-black mb-8 max-w-sm mx-auto`}
+      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white text-[#EE339A]' : 'bg-white text-[#8A3FFE]'} mb-8 max-w-sm mx-auto`}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
-      <h3 className="text-2xl font-bold mb-2">{year} {quarter}</h3>
+      <h3 className="text-2xl font-bold mb-2 text-center bg-[#EE339A] text-white rounded-xl py-2">{year} {quarter}</h3>
       <ul className="list-disc list-inside">
         {items.map((item, index) => (
-          <li key={index}>{item}</li>
+          <motion.li
+            key={index}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            {item}
+          </motion.li>
         ))}
       </ul>
     </motion.div>
@@ -93,9 +122,22 @@ export default function Roadmap() {
   return (
     <div className="relative min-h-[200vh] py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
-        <RoadmapSVG />
-        <h1 className="text-4xl font-bold text-center mb-12 relative z-10">Road Map</h1>
-        <Image src="/placeholder.svg" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8 relative z-10" />
+        <CustomTimelineSVG />
+        <motion.h1
+          className="text-4xl font-bold text-center mb-12 relative z-10"
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Road Map
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image src="/cat1.png" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8 relative z-10" />
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           <div className="space-y-16">
             <QuarterBox
@@ -141,7 +183,6 @@ export default function Roadmap() {
                 "Platform Service Development - 1.0 Ver",
                 "Hashpet Partnership Expansion",
                 "Hashpet wallet Beta launch",
-                "Hashpet Partnership Expansion",
                 "Hashpet Reward system open"
               ]}
               color="purple"
