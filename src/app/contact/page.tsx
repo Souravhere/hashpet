@@ -63,7 +63,7 @@ const Page = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-purple-500 text-white px-6 py-2 rounded-full inline-flex items-center"
-              onClick={() => window.open('https://t.me/yourTelegramHandle', '_blank')} // replace with your actual Telegram handle
+              onClick={() => window.open('https://t.me/yellowjeff?text=Join%20the%20Hash%20Pet%20community!%20Connect%20with%20pet%20lovers%20worldwide,%20explore%20innovative%20pet%20care%20solutions,%20and%20be%20part%20of%20a%20global%20movement%20for%20sustainable%20pet%20well-being!%20Click%20to%20get%20started%20now!', '_blank')} // replace with your actual Telegram handle
             >
               <FaTelegramPlane className="mr-2" /> Telegram
             </motion.button>
