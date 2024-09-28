@@ -4,14 +4,14 @@ import Image from 'next/image'
 import { motion, useAnimation } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 
-const AnimatedCard = ({ children, isLeft }) => {
+const AnimatedCard = ({ children, isLeft }: { children: React.ReactNode; isLeft: boolean }) => {
   const controls = useAnimation()
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
-  useEffect(() => {
+  useEffect(() => { 
     if (inView) {
       controls.start('visible')
     }
@@ -72,7 +72,7 @@ function MainServices() {
         Services
       </motion.h1>
       <motion.p 
-        className='text-base text-center mb-8'
+        className='text-base text-center mb-8 overflow-x-hidden'
         variants={titleVariants}
       >
         Join your Pet Life with <span className="text-pink-500">Pet</span>
