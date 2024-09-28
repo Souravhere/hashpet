@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Image from 'next/image'
 
-const CustomTimelineSVG = ({ isMobile = false }) => {
+const CustomTimelineSVG = () => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -17,40 +17,29 @@ const CustomTimelineSVG = ({ isMobile = false }) => {
     restDelta: 0.001
   })
 
-  const mobilePath = "M10 0 V1000"
-  const desktopPath = "M50 0 V1000 M20 100 H80 M80 300 H20 M20 500 H80 M80 700 H20 M20 900 H80"
-
   return (
-    <div ref={ref} className={`absolute ${isMobile ? 'left-4' : 'left-1/2 transform -translate-x-1/2'} h-full w-full z-0`}>
+    <div ref={ref} className="absolute left-0 w-full h-full z-0">
       <svg
-        width={isMobile ? "20" : "100%"}
-        height="90%"
-        viewBox={isMobile ? "0 0 20 2000" : "0 0 100 2000"}
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full h-full mt-32"
+        viewBox="0 0 100 800"
         fill="none"
-        xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMax meet"
-        className="absolute top-0"
       >
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="#8A3FFE" />
+            <stop offset="100%" stopColor="#EE339A" />
+          </linearGradient>
+        </defs>
         <motion.path
-          d={isMobile ? mobilePath : desktopPath}
-          stroke="#EA79AB"
+          d="M50 0 C 20 200, 80 400, 50 600 S 20 800, 50 800"
+          stroke="url(#gradient)"
           strokeWidth="4"
           strokeLinecap="round"
+          fill="none"
           initial={{ pathLength: 0 }}
           style={{ pathLength }}
         />
-        {[100, 300, 500, 700, 900].map((y, index) => (
-          <motion.circle
-            key={index}
-            cx={isMobile ? "10" : "50"}
-            cy={y}
-            r="8"
-            fill="#EA79AB"
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ delay: index * 0.2, duration: 0.5, type: "spring" }}
-          />
-        ))}
       </svg>
     </div>
   )
@@ -123,14 +112,9 @@ export default function Roadmap() {
   if (!isClient) return null
 
   return (
-    <div className="relative min-h-[200vh] py-16 bg-white overflow-hidden">
+    <div className="relative py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
-        <div className="md:hidden">
-          <CustomTimelineSVG isMobile={true} />
-        </div>
-        <div className="hidden md:block">
-          <CustomTimelineSVG />
-        </div>
+        <CustomTimelineSVG />
         <motion.h1
           className="text-4xl font-bold text-center mb-12 relative z-10"
           initial={{ opacity: 0, y: -50 }}
