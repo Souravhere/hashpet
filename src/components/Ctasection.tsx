@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import Link from "next/link";
+import Image from 'next/image'
 
 const Ctasection = () => {
   const controls = useAnimation();
@@ -25,9 +26,9 @@ const Ctasection = () => {
         hidden: { opacity: 0, y: 100 },
       }}
       transition={{ duration: 0.6 }}
-      className="w-[90%] py-10 px-4 md:px-0 sm:mt-14 mt-20 bg-pink-100 rounded-lg mx-auto"
+      className="w-[90%] relative py-10 px-4 md:px-0 sm:mt-14 mt-20 bg-pink-100 rounded-lg mx-auto"
     >
-      <div className=" ">
+      <div>
         {/* Text and Link */}
         <div className="text-center mx-auto">
           <h1 className="flex justify-center text-2xl text-center mx-auto md:text-4xl lg:text-5xl font-bold">
@@ -80,6 +81,20 @@ const Ctasection = () => {
             </motion.div>
           </Link>
         </div>
+        <motion.div 
+          className="absolute z-20 sm:-left-16 -left-[30px] sm:top-[20%] top-[45%]"
+          initial={{ opacity: 0, x: -100}}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          <Image
+            src="/cat1.png"
+            alt="Left Cat"
+            width={100}
+            height={100}
+            className="sm:w-44 w-32"
+          />
+        </motion.div>
       </div>
     </motion.section>
   );
