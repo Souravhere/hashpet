@@ -12,7 +12,7 @@ const Page = () => {
     comment: '',
   });
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -20,7 +20,7 @@ const Page = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Form submitted successfully!');
@@ -107,9 +107,9 @@ const Page = () => {
             <textarea
               name="comment"
               placeholder="Your Comments"
-              rows="4"
+              rows={4} // Changed from "4" (string) to 4 (number)
               className="w-full p-2 rounded-md"
-              onChange={handleInputChange}
+              onChange={handleInputChange} // Removed unnecessary type assertion
               required
             ></textarea>
             <motion.button
