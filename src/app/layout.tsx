@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     siteName: "Hash Pet",
     images: [
       {
-        url: "https://www.hashpet.io/images/og-image.jpg", // Replace with your image URL
+        url: "https://hashpet.vercel.app/open-graph.png", // Replace with your image URL
         width: 1200,
         height: 630,
         alt: "Hash Pet - Next-Generation Web3 Pet Platform",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     site: "@HashPet",
     title: "Hash Pet - Next-Generation Web3 Pet Platform",
     description: "Join Hash Pet, a comprehensive platform providing innovative solutions for pet owners globally.",
-    images: ["https://www.hashpet.io/images/og-image.jpg"], // Replace with your image URL
+    images: ["https://hashpet.vercel.app/open-graph.png"], // Replace with your image URL
   },
   alternates: {
     canonical: "https://www.hashpet.io",
@@ -93,7 +93,7 @@ export default function RootLayout({
         <meta property="og:description" content="Explore innovative, data-driven pet care solutions on Hash Pet, connecting pet owners worldwide." />
         <meta property="og:url" content="https://www.hashpet.io" />
         <meta property="og:site_name" content="Hash Pet" />
-        <meta property="og:image" content="https://www.hashpet.io/images/og-image.jpg" /> {/* Replace with your image URL */}
+        <meta property="og:image" content="https://hashpet.vercel.app/open-graph.png" /> {/* Replace with your image URL */}
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:type" content="website" />
@@ -103,7 +103,7 @@ export default function RootLayout({
         <meta name="twitter:site" content="@HashPet" />
         <meta name="twitter:title" content="Hash Pet - Next-Generation Web3 Pet Platform" />
         <meta name="twitter:description" content="Join Hash Pet, a comprehensive platform providing innovative solutions for pet owners globally." />
-        <meta name="twitter:image" content="https://www.hashpet.io/images/og-image.jpg" /> {/* Replace with your image URL */}
+        <meta name="twitter:image" content="https://hashpet.vercel.app/open-graph.png" /> {/* Replace with your image URL */}
 
         {/* Favicon */}
         <link rel="icon" href="/logo.png" sizes="any" />
