@@ -23,7 +23,7 @@ const tokenInfo: TokenInfo[] = [
   { label: "Ticker", value: "Hash Pet" },
   { label: "Decimal", value: "18" },
   { label: "Total Issuance", value: "10,000,000,000 Hash Pet" },
-  { label: "Contract Address", value: "0x8e3Ec4184C8dF07418D8aDFfaa7ADfc5DEdb521C" },
+  { label: "Contract Address", value: "0x8e3Ec4184C8dF07418D8aDFfa a7ADfc5DEdb521C" },
 ];
 
 const tokenAllocation: TokenAllocation[] = [
