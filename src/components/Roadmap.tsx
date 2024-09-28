@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import Image from 'next/image'
 
-const CustomTimelineSVG = () => {
+const CustomTimelineSVG = ({ isMobile = false }) => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -18,18 +18,18 @@ const CustomTimelineSVG = () => {
   })
 
   return (
-    <div ref={ref} className="absolute left-1/2 transform -translate-x-1/2 h-full w-full z-0 hidden md:block">
+    <div ref={ref} className={`absolute ${isMobile ? 'left-4 md:left-1/2' : 'left-1/2'} transform -translate-x-1/2 h-full w-full z-0 mt-[200px]`}>
       <svg
-        width="100%"
+        width={isMobile ? "4" : "100%"}
         height="100%"
-        viewBox="0 0 100 1000"
+        viewBox={isMobile ? "0 0 4 1000" : "0 0 100 1000"}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMax meet"
-        className="absolute top-0 left-1/2 transform -translate-x-1/2"
+        className={`absolute top-0 ${isMobile ? 'left-0' : 'left-1/2 transform -translate-x-1/2'}`}
       >
         <motion.path
-          d="M50 0 V1000"
+          d={isMobile ? "M2 0 V1000" : "M50 0 V1000"}
           stroke="#EA79AB"
           strokeWidth="4"
           strokeLinecap="round"
@@ -39,9 +39,9 @@ const CustomTimelineSVG = () => {
         {[100, 300, 500, 700, 900].map((y, index) => (
           <motion.circle
             key={index}
-            cx="50"
+            cx={isMobile ? "2" : "50"}
             cy={y}
-            r="10"
+            r={isMobile ? "6" : "10"}
             fill="#EA79AB"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -84,16 +84,18 @@ const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, is
     restDelta: 0.001
   })
 
+  const bgColor = color === 'pink' ? 'bg-[#EE339A]' : 'bg-[#8A3FFE]'
+
   return (
     <motion.div
       ref={ref}
       style={{ opacity, scale, x }}
-      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white text-[#EE339A]' : 'bg-white text-[#8A3FFE]'} mb-8 max-w-sm mx-auto`}
+      className={`p-4 rounded-lg shadow-lg bg-white ${color === 'pink' ? 'text-[#EE339A]' : 'text-[#8A3FFE]'} mb-8 max-w-sm mx-auto`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
-      <h3 className="text-2xl font-bold mb-2 text-center bg-[#EE339A] text-white rounded-xl py-2">{year} {quarter}</h3>
+      <h3 className={`text-2xl font-bold mb-2 text-center ${bgColor} text-white rounded-xl py-2`}>{year} {quarter}</h3>
       <ul className="list-disc list-inside">
         {items.map((item, index) => (
           <motion.li
@@ -122,6 +124,7 @@ export default function Roadmap() {
   return (
     <div className="relative min-h-[200vh] py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
+        <CustomTimelineSVG isMobile={true} />
         <CustomTimelineSVG />
         <motion.h1
           className="text-4xl font-bold text-center mb-12 relative z-10"
