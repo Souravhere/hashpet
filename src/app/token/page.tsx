@@ -5,16 +5,28 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaCoins, FaPercentage, FaHandsHelping, FaChartPie, FaGlobe, FaHeart } from "react-icons/fa";
 
-const tokenInfo = [
+// Define interfaces for types
+interface TokenInfo {
+  label: string;
+  value: string;
+}
+
+interface TokenAllocation {
+  label: string;
+  value: string;
+  icon: React.ReactNode;
+}
+
+const tokenInfo: TokenInfo[] = [
   { label: "Network", value: "BSC (Binance Smart Chain)" },
   { label: "Token Name", value: "Hash Pet Token" },
   { label: "Ticker", value: "Hash Pet" },
   { label: "Decimal", value: "18" },
   { label: "Total Issuance", value: "10,000,000,000 Hash Pet" },
-  { label: "Contract Address", value: "0x8e3Ec4184C8dF07418D8aDF faa7ADfc5DEdb521C" },
+  { label: "Contract Address", value: "0x8e3Ec4184C8dF07418D8aDFfaa7ADfc5DEdb521C" },
 ];
 
-const tokenAllocation = [
+const tokenAllocation: TokenAllocation[] = [
   { label: "Sale", value: "25%", icon: <FaCoins className="text-pink-500" /> },
   { label: "Team & Advisor", value: "20%", icon: <FaHandsHelping className="text-purple-500" /> },
   { label: "Marketing & Operation", value: "20%", icon: <FaGlobe className="text-pink-500" /> },
@@ -33,34 +45,34 @@ const howToUseToken = [
 const HeroSection = () => {
   return (
     <div className="relative w-full h-52 flex items-center justify-center bg-gradient-to-r from-pink-300 to-purple-300 rounded-xl p-5">
-    <motion.div
-      className="relative w-auto flex items-center justify-end h-full"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
-      <Image
-        src="/logo.png" 
-        alt="Welcome to Hash Pet"
-        width={100}
-        height={100}
-      />
-    </motion.div>
-    <div className="w-1/2 h-full flex items-center justify-center text-white">
-      <motion.h1
-        className="sm:text-5xl text-3xl font-bold text-center"
-        initial={{ opacity: 0, x: 20 }}
-        animate={{ opacity: 1, x: 0 }}
+      <motion.div
+        className="relative w-auto flex items-center justify-end h-full"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Welcome to Hash Pet
-      </motion.h1>
+        <Image
+          src="/logo.png"
+          alt="Welcome to Hash Pet"
+          width={100}
+          height={100}
+        />
+      </motion.div>
+      <div className="w-1/2 h-full flex items-center justify-center text-white">
+        <motion.h1
+          className="sm:text-5xl text-3xl font-bold text-center"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          Welcome to Hash Pet
+        </motion.h1>
+      </div>
     </div>
-  </div>
   );
 };
 
-const TokenCard = ({ info }) => {
+const TokenCard = ({ info }: { info: TokenInfo }) => {
   return (
     <motion.div
       className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300"
@@ -75,7 +87,7 @@ const TokenCard = ({ info }) => {
   );
 };
 
-const TokenAllocationCard = ({ alloc }) => {
+const TokenAllocationCard = ({ alloc }: { alloc: TokenAllocation }) => {
   return (
     <motion.div
       className="bg-white p-6 rounded-lg shadow-lg flex items-center gap-4 hover:bg-purple-50 transition-colors duration-300"
@@ -93,7 +105,7 @@ const TokenAllocationCard = ({ alloc }) => {
   );
 };
 
-const page = () => {
+const Page = () => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-start bg-gray-100 p-6 py-24">
       <HeroSection />
@@ -151,4 +163,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
