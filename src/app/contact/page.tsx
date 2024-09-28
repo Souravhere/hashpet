@@ -55,7 +55,7 @@ const Page = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="bg-pink-500 text-white px-6 py-2 rounded-full inline-flex items-center"
-              onClick={() => window.open('mailto:help@hashpet.io', '_blank')}
+              onClick={() => window.open('mailto:help@hashpet.io?subject=I%20Want%20to%20Learn%20More%20About%20Hash%20Pet&body=Hello%20Hash%20Pet%20Team,%0AI%20am%20excited%20about%20your%20platform%20and%20would%20love%20to%20learn%20more%20about%20how%20I%20can%20join%20the%20community%20and%20explore%20your%20services.%0A%0AThank%20you!', '_blank')}
             >
               <FiMail className="mr-2" /> Email Us
             </motion.button>
