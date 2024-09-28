@@ -60,7 +60,7 @@ function MainServices() {
 
   return (
     <motion.div
-      className='w-full h-fit py-7'
+      className='w-full h-fit py-7 overflow-x-hidden'
       initial="hidden"
       animate="visible"
       variants={containerVariants}
