@@ -1,13 +1,85 @@
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+const AnimatedCard = ({ children, isLeft }) => {
+  const controls = useAnimation()
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible')
+    }
+  }, [controls, inView])
+
+  const cardVariants = {
+    hidden: { opacity: 0, x: isLeft ? -50 : 50 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5, ease: 'easeOut' }
+    }
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={controls}
+      variants={cardVariants}
+    >
+      {children}
+    </motion.div>
+  )
+}
 
 function MainServices() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3
+      }
+    }
+  }
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5, ease: 'easeOut' }
+    }
+  }
+
   return (
-    <div className='w-full h-fit'>
-      <h1 className='text-4xl font-bold text-center mb-2'> Services</h1>
-      <p className='text-base text-center'>Join your Pet Life with <span className="text-pink-500">Pet</span></p>
-        {/* card - 1 this is the card from left text and right img*/}
-      <div>
+    <motion.div
+      className='w-full h-fit py-7'
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <motion.h1 
+        className='text-4xl font-bold text-center mb-2'
+        variants={titleVariants}
+      >
+        Services
+      </motion.h1>
+      <motion.p 
+        className='text-base text-center mb-8'
+        variants={titleVariants}
+      >
+        Join your Pet Life with <span className="text-pink-500">Pet</span>
+      </motion.p>
+
+      {/* Card 1 */}
+      <AnimatedCard isLeft={true}>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
@@ -61,9 +133,10 @@ function MainServices() {
             </div>
           </div>
         </div>
-      </div>
-        {/* card - 2 this is the card from left img and right text*/}
-      <div>
+      </AnimatedCard>
+
+      {/* Card 2 */}
+      <AnimatedCard isLeft={false}>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is the text section for mobile */}
           <div className='sm:w-1/2 sm:hidden block w-full bg-white items-center mt-20 justify-between sm:h-full h-fit px-3'>
@@ -118,9 +191,10 @@ function MainServices() {
             </div>
           </div>
         </div>
-      </div>
-        {/* card - 3 this is the card from left text and right img*/}
-      <div>
+      </AnimatedCard>
+
+      {/* Card 3 */}
+      <AnimatedCard isLeft={true}>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
@@ -174,9 +248,10 @@ function MainServices() {
             </div>
           </div>
         </div>
-      </div>
-      {/* card - 4 this is the card from left img and right text*/}
-      <div>
+      </AnimatedCard>
+
+      {/* Card 4 */}
+      <AnimatedCard isLeft={false}>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is text section for the mobile */}
           <div className='sm:w-1/2 w-full sm:hidden bg-white flex mt-20 items-center justify-between sm:h-full h-fit px-3'>
@@ -229,9 +304,10 @@ function MainServices() {
             </div>
           </div>
         </div>
-      </div>
-      {/* card - 5 this is the card from left text and right img*/}
-      <div>
+      </AnimatedCard>
+
+      {/* Card 5 */}
+      <AnimatedCard isLeft={true}>
         <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
@@ -285,8 +361,8 @@ function MainServices() {
             </div>   
           </div>
         </div>
-      </div>
-    </div>
+      </AnimatedCard>
+    </motion.div>
   )
 }
 
