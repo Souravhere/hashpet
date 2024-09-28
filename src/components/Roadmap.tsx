@@ -17,19 +17,22 @@ const CustomTimelineSVG = ({ isMobile = false }) => {
     restDelta: 0.001
   })
 
+  const mobilePath = "M10 0 V1000"
+  const desktopPath = "M50 0 V1000 M20 100 H80 M80 300 H20 M20 500 H80 M80 700 H20 M20 900 H80"
+
   return (
-    <div ref={ref} className={`absolute ${isMobile ? 'left-4 md:left-1/2' : 'left-1/2'} transform -translate-x-1/2 h-full w-full z-0 mt-[200px]`}>
+    <div ref={ref} className={`absolute ${isMobile ? 'left-4' : 'left-1/2 transform -translate-x-1/2'} h-full w-full z-0`}>
       <svg
-        width={isMobile ? "4" : "100%"}
-        height="100%"
-        viewBox={isMobile ? "0 0 4 1000" : "0 0 100 1000"}
+        width={isMobile ? "20" : "100%"}
+        height="90%"
+        viewBox={isMobile ? "0 0 20 2000" : "0 0 100 2000"}
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         preserveAspectRatio="xMidYMax meet"
-        className={`absolute top-0 ${isMobile ? 'left-0' : 'left-1/2 transform -translate-x-1/2'}`}
+        className="absolute top-0"
       >
         <motion.path
-          d={isMobile ? "M2 0 V1000" : "M50 0 V1000"}
+          d={isMobile ? mobilePath : desktopPath}
           stroke="#EA79AB"
           strokeWidth="4"
           strokeLinecap="round"
@@ -39,9 +42,9 @@ const CustomTimelineSVG = ({ isMobile = false }) => {
         {[100, 300, 500, 700, 900].map((y, index) => (
           <motion.circle
             key={index}
-            cx={isMobile ? "2" : "50"}
+            cx={isMobile ? "10" : "50"}
             cy={y}
-            r={isMobile ? "6" : "10"}
+            r="8"
             fill="#EA79AB"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
@@ -91,8 +94,6 @@ const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, is
       ref={ref}
       style={{ opacity, scale, x }}
       className={`p-4 rounded-lg shadow-lg bg-white ${color === 'pink' ? 'text-[#EE339A]' : 'text-[#8A3FFE]'} mb-8 max-w-sm mx-auto`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
       <h3 className={`text-2xl font-bold mb-2 text-center ${bgColor} text-white rounded-xl py-2`}>{year} {quarter}</h3>
@@ -124,8 +125,12 @@ export default function Roadmap() {
   return (
     <div className="relative min-h-[200vh] py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
-        <CustomTimelineSVG isMobile={true} />
-        <CustomTimelineSVG />
+        <div className="md:hidden">
+          <CustomTimelineSVG isMobile={true} />
+        </div>
+        <div className="hidden md:block">
+          <CustomTimelineSVG />
+        </div>
         <motion.h1
           className="text-4xl font-bold text-center mb-12 relative z-10"
           initial={{ opacity: 0, y: -50 }}
@@ -142,7 +147,7 @@ export default function Roadmap() {
           <Image src="/cat1.png" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8 relative z-10" />
         </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-          <div className="space-y-16">
+          <div className="space-y-16 md:mt-16 md:pr-8">
             <QuarterBox
               year="2024"
               quarter="Q2"
@@ -178,7 +183,7 @@ export default function Roadmap() {
               imageSrc="/cat-footprint-pink.png"
             />
           </div>
-          <div className="space-y-16 mt-16 md:mt-32">
+          <div className="space-y-16 mt-16 md:mt-48 md:pl-8">
             <QuarterBox
               year="2025"
               quarter="Q1"
