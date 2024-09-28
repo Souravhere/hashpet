@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 
 const RoadmapSVG = () => {
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const RoadmapSVG = () => {
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1])
 
-  if (!isClient) return null // Return null on server-side
+  if (!isClient) return null
 
   return (
     <div ref={ref} className="absolute left-1/2 transform -translate-x-1/2 h-full w-full z-0 hidden md:block">
@@ -45,8 +45,17 @@ const RoadmapSVG = () => {
   )
 }
 
-const QuarterBox = ({ year, quarter, items, color, isLeft, imageSrc }) => {
-  const ref = useRef(null)
+interface QuarterBoxProps {
+  year: string;
+  quarter: string;
+  items: string[];
+  color: 'pink' | 'purple';
+  isLeft: boolean;
+  imageSrc: string;
+}
+
+const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, isLeft, imageSrc }) => {
+  const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"]
@@ -59,7 +68,7 @@ const QuarterBox = ({ year, quarter, items, color, isLeft, imageSrc }) => {
     <motion.div
       ref={ref}
       style={{ opacity, scale, x }}
-      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white' : 'bg-purple-500'} text- mb-8 max-w-sm mx-auto`}
+      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white' : 'bg-purple-500'} text-black mb-8 max-w-sm mx-auto`}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
       <h3 className="text-2xl font-bold mb-2">{year} {quarter}</h3>
@@ -79,14 +88,14 @@ export default function Roadmap() {
     setIsClient(true)
   }, [])
 
-  if (!isClient) return null // Return null on server-side
+  if (!isClient) return null
 
   return (
     <div className="relative min-h-[200vh] py-16 bg-white overflow-hidden">
       <div className="container mx-auto px-4 relative">
         <RoadmapSVG />
         <h1 className="text-4xl font-bold text-center mb-12 relative z-10">Road Map</h1>
-        <Image src="/placeholder.svg?height=100&width=100" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8 relative z-10" />
+        <Image src="/placeholder.svg" alt="Pet Logo" width={100} height={100} className="mx-auto mb-8 relative z-10" />
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
           <div className="space-y-16">
             <QuarterBox
