@@ -91,7 +91,30 @@ const termsData = [
   },
   // Add more sections as needed
 ];
-
+const HeroSection = () => {
+  return (
+    <div className="relative w-full h-fit flex items-center justify-center bg-gradient-to-r from-pink-300 to-purple-300 rounded-xl p-5">
+    <div className=" h-full text-white">
+      <motion.h1
+        className="sm:text-4xl text-3xl font-bold text-center"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Terms of Service
+      </motion.h1>
+      <motion.p
+        className="sm:text-xl text-sm font-bold text-center"
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Effective Date: August 7, 2024
+      </motion.p>
+    </div>
+  </div>
+  );
+};
 const Page = () => { // Changed 'page' to 'Page'
   const { scrollYProgress } = useScroll();
 
@@ -102,7 +125,8 @@ const Page = () => { // Changed 'page' to 'Page'
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4">
+    <div className="min-h-screen bg-gray-100 py-24 px-4">
+    <HeroSection/>
       <motion.h1
         className="text-4xl font-bold text-center mb-8"
         style={{ scale: scrollYProgress }}
