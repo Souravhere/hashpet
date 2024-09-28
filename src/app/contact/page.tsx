@@ -22,8 +22,12 @@ const Page = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Form submitted successfully!');
+
+    const { firstName, lastName, email, comment } = formData;
+    
+    const mailtoLink = `mailto:help@hashpet.io?subject=Contact%20from%20${firstName}%20${lastName}&body=First%20Name:%20${firstName}%0ALast%20Name:%20${lastName}%0AEmail:%20${email}%0AComment:%20${comment}`;
+    
+    window.location.href = mailtoLink;
   };
 
   return (
