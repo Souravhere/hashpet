@@ -59,7 +59,7 @@ const QuarterBox = ({ year, quarter, items, color, isLeft, imageSrc }) => {
     <motion.div
       ref={ref}
       style={{ opacity, scale, x }}
-      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-pink-500' : 'bg-purple-500'} text-white mb-8 max-w-sm mx-auto`}
+      className={`p-4 rounded-lg shadow-lg ${color === 'pink' ? 'bg-white' : 'bg-purple-500'} text- mb-8 max-w-sm mx-auto`}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
       <h3 className="text-2xl font-bold mb-2">{year} {quarter}</h3>
