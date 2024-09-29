@@ -1,17 +1,17 @@
-"use client"
+'use client'
 
 import React, { useRef, useEffect, useState } from 'react'
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
+import { motion, useScroll, useSpring, useInView } from 'framer-motion' // Removed useTransform
 import Image from 'next/image'
 
 const CustomTimelineSVG = () => {
   const ref = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
   })
 
-  const pathLength = useSpring(useTransform(scrollYProgress, [0, 1], [0, 1]), {
+  const pathLength = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001
@@ -47,7 +47,7 @@ const CustomTimelineSVG = () => {
           strokeLinecap="round"
           fill="none"
           style={{ pathLength }}
-          filter="url(#neonGlow)" // Apply the neon glow filter
+          filter="url(#neonGlow)"
         />
       </svg>
     </div>
@@ -65,32 +65,16 @@ interface QuarterBoxProps {
 
 const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, isLeft, imageSrc }) => {
   const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "center center"]
-  })
-  const opacity = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 1]), {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
-  const scale = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 1]), {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
-  const x = useSpring(useTransform(scrollYProgress, [0, 0.5, 1], [isLeft ? -50 : 50, 0, 0]), {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  })
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   const bgColor = color === 'pink' ? 'bg-[#EE339A]' : 'bg-[#8A3FFE]'
 
   return (
     <motion.div
       ref={ref}
-      style={{ opacity, scale, x }}
+      initial={{ opacity: 0, scale: 0.8, x: isLeft ? -50 : 50 }}
+      animate={isInView ? { opacity: 1, scale: 1, x: 0 } : {}}
+      transition={{ duration: 0.5, ease: "easeOut" }}
       className={`p-4 rounded-lg shadow-lg bg-white ${color === 'pink' ? 'text-[#EE339A]' : 'text-[#8A3FFE]'} mb-8 max-w-sm mx-auto`}
     >
       <Image src={imageSrc} alt={`${year} ${quarter}`} width={100} height={100} className="mx-auto mb-4 rounded-full" />
@@ -100,7 +84,7 @@ const QuarterBox: React.FC<QuarterBoxProps> = ({ year, quarter, items, color, is
           <motion.li
             key={index}
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: index * 0.1 }}
           >
             {item}
