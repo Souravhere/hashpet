@@ -160,7 +160,7 @@ function MainServices() {
               src='/image@2x.png'
               alt='hello pet'
               layout="fill"
-              objectFit="contain"
+              objectFit="contain" 
               className="rounded-lg h-[500px]"
             />
             {/* card right */}
@@ -195,7 +195,7 @@ function MainServices() {
 
       {/* Card 3 */}
       <AnimatedCard isLeft={true}>
-        <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
+        <div className='sm:flex block w-full sm:h-[450px] h-fit my-5 sm:mt-0 mt-14'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
             <div>
@@ -308,7 +308,7 @@ function MainServices() {
 
       {/* Card 5 */}
       <AnimatedCard isLeft={true}>
-        <div className='sm:flex block w-full sm:h-[450px] h-fit my-5'>
+        <div className='sm:flex block w-full sm:h-[450px] h-fit my-5 sm:mt-0 mt-14'>
           {/* this is the card left section */}
           <div className='sm:w-1/2 w-full bg-white flex items-center justify-between sm:h-full h-fit px-3'>
             <div>

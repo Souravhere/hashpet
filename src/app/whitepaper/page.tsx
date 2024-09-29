@@ -74,19 +74,19 @@ const WhitepaperPage = () => {
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-purple-600 px-6 py-3 rounded-full inline-flex items-center justify-center font-semibold shadow hover:shadow-md transition-all"
                 onClick={() =>
-                  window.open("/path/to/english-whitepaper.pdf", "_blank")
+                  window.open("https://www.hashpet.io/hashpet_whitepaper_en.pdf", "_blank")
                 }
               >
                 <FiDownload className="mr-2" /> English Version
               </motion.button>
 
               {/* Korean Whitepaper Button */}
-              <motion.button
+              <motion.button  
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-pink-600 px-6 py-3 rounded-full inline-flex items-center justify-center font-semibold shadow hover:shadow-md transition-all"
                 onClick={() =>
-                  window.open("/path/to/korean-whitepaper.pdf", "_blank")
+                  window.open("https://www.hashpet.io/hashpet_whitepaper_ko.pdf", "_blank")
                 }
               >
                 <FiDownload className="mr-2" /> Korean Version
