@@ -1,0 +1,9 @@
+# Allow all user agents to access everything
+User-agent: *
+Disallow:
+
+Disallow: /private/
+Disallow: /admin/
+
+# Point to the sitemap location
+Sitemap: https://www.hashpet.io/sitemap.xml
