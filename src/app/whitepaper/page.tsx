@@ -102,12 +102,12 @@ const WhitepaperPage = () => {
           className="p-8 md:p-12 text-center"
         >
           <h3 className="text-3xl font-bold text-gray-800 mb-4">
-            What’s Inside the Whitepaper?
+            What&apos;s Inside the Whitepaper?
           </h3>
           <p className="text-gray-600 text-lg mb-8">
-            Our whitepaper covers all aspects of Hash Pet’s mission,
+            Our whitepaper covers all aspects of Hash Pet&apos;s mission,
             technological foundation, and market potential. It provides a deep
-            dive into the project’s features, roadmap, and future vision.
+            dive into the project&apos;s features, roadmap, and future vision.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
             <motion.div
@@ -121,7 +121,7 @@ const WhitepaperPage = () => {
                   Vision and Mission
                 </h4>
                 <p className="text-gray-600">
-                  Overview of Hash Pet’s mission to revolutionize the pet tech
+                  Overview of Hash Pet&apos;s mission to revolutionize the pet tech
                   industry with innovative blockchain solutions.
                 </p>
               </div>
@@ -154,7 +154,7 @@ const WhitepaperPage = () => {
                 </h4>
                 <p className="text-gray-600">
                   In-depth information on the technological backbone powering
-                  Hash Pet’s ecosystem.
+                  Hash Pet&apos;s ecosystem.
                 </p>
               </div>
             </motion.div>
