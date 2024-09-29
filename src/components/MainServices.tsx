@@ -74,7 +74,7 @@ function MainServices() {
       <motion.p 
         className='text-base text-center mb-8 overflow-x-hidden'
         variants={titleVariants}
-      >
+      > 
         Join your Pet Life with <span className="text-pink-500">Pet</span>
       </motion.p>
 

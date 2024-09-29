@@ -67,7 +67,7 @@ export default function Header() {
         >
           <div className="container mx-auto px-4 py-4 flex items-center justify-between">
             <Link href="/" className="flex items-center">
-              <Image src="/logo.png" alt="Logo" width={50} height={50} />
+              <Image src="/new-logo.png" alt="Logo" width={100} height={60} />
             </Link>
 
             {/* Desktop Navigation */}
