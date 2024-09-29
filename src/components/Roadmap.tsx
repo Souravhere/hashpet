@@ -30,6 +30,15 @@ const CustomTimelineSVG = () => {
             <stop offset="0%" stopColor="#8A3FFE" />
             <stop offset="100%" stopColor="#EE339A" />
           </linearGradient>
+          <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+            <feFlood floodColor="#EE339A" result="glowColor" />
+            <feComposite in2="blur" operator="in" />
+            <feMerge>
+              <feMergeNode />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
         </defs>
         <motion.path
           d="M50 0 C 20 200, 80 400, 50 600 S 20 800, 50 800"
@@ -37,8 +46,8 @@ const CustomTimelineSVG = () => {
           strokeWidth="4"
           strokeLinecap="round"
           fill="none"
-          initial={{ pathLength: 0 }}
           style={{ pathLength }}
+          filter="url(#neonGlow)" // Apply the neon glow filter
         />
       </svg>
     </div>
