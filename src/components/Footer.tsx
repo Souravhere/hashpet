@@ -99,7 +99,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li>
               <Link
-                href="/explorer"
+                href="/whitepaper"
                 className="hover:text-pink-300 transition-colors duration-300 hover:underline"
               >
                 WhitePaper

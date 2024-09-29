@@ -18,7 +18,7 @@ const geistMono = localFont({
 
 // Metadata for SEO
 export const metadata: Metadata = {
-  title: "Hash Pet",
+  title: "Hash Pet - Next-Generation Web3 Pet Platform",
   description: "Hash Pet - A next-generation digital platform for pet owners offering comprehensive pet care services through Web3 technology.",
   openGraph: {
     title: "Hash Pet - Next-Generation Web3 Pet Platform",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     site: "@HashPet",
     title: "Hash Pet - Next-Generation Web3 Pet Platform",
     description: "Join Hash Pet, a comprehensive platform providing innovative solutions for pet owners globally.",
-    images: ["https://hashpet.vercel.app/open-graph.png"], // Replace with your image URL
+    images: ["https://hashpet.vercel.app/open-graph.png"], 
   },
   alternates: {
     canonical: "https://www.hashpet.io",
@@ -103,7 +103,7 @@ export default function RootLayout({
         <meta name="twitter:site" content="@HashPet" />
         <meta name="twitter:title" content="Hash Pet - Next-Generation Web3 Pet Platform" />
         <meta name="twitter:description" content="Join Hash Pet, a comprehensive platform providing innovative solutions for pet owners globally." />
-        <meta name="twitter:image" content="https://hashpet.vercel.app/open-graph.png" /> {/* Replace with your image URL */}
+        <meta name="twitter:image" content="https://hashpet.vercel.app/open-graph.png" />
 
         {/* Favicon */}
         <link rel="icon" href="/logo.png" sizes="any" />
