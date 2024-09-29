@@ -27,6 +27,11 @@ const features = [
   },
 ];
 
+const featureVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: { opacity: 1, y: 0, scale: 1 },
+};
+
 export default function HashpetComponent() {
   const ref = useRef<HTMLDivElement>(null); // Specify the type as HTMLDivElement
   const [isInView, setIsInView] = useState(false);
@@ -111,9 +116,10 @@ export default function HashpetComponent() {
         {features.map((feature, index) => (
           <motion.div
             key={feature.title}
-            className="bg-white p-6 border border-[#EA79AB] rounded-lg shadow-md hover:bg-pink-200 duration-500 ease-in-out"
-            initial={{ opacity: 0, y: 50, scale: 0.95 }}
-            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            className="bg-white p-6 border border-[#EA79AB] rounded-lg shadow-md hover:bg-pink-200 duration-500 ease-in-out transform hover:scale-105 hover:shadow-lg"
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            variants={featureVariants}
             transition={{
               duration: 0.5,
               delay: index * 0.1,
